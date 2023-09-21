@@ -13,7 +13,6 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var apiInterface: ProductInterface
     private lateinit var productData: ProductData
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val id = findViewById<TextView>(R.id.pro_id)
         val title = findViewById<TextView>(R.id.title)
         val des = findViewById<TextView>(R.id.des)
-        val product_image = findViewById<ImageView>(R.id.image_product)
+        val productImage = findViewById<ImageView>(R.id.image_product)
 
         val service = ProductObject.getInstance()
 
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                         Glide.with(this@MainActivity)
                             .load(productData.products[0].thumbnail) // Replace with the actual image URL field in your product data
                             .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(product_image)
+                            .into(productImage)
 
                     } else {
 
